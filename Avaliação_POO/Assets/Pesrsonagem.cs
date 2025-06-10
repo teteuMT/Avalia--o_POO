@@ -1,5 +1,3 @@
-using System.Collections;
-using UnityEditor;
 using UnityEngine;
 
 public class Personagem : MonoBehaviour
@@ -42,7 +40,7 @@ public class Personagem : MonoBehaviour
         return this.forca_ataque;
     }
 
-    public void AtribuirForca_do_pulo(float forca_do_pulo);
+    public void AtribuirForca_do_pulo(float forca_do_pulo)
     {
         this.forca_do_pulo = forca_do_pulo;
     }
