@@ -1,50 +1,14 @@
 using UnityEngine;
 
-public class Golemancer : MonoBehaviour
+public class Golemancer : Personagem
 {
-    public class Personagem : MonoBehaviour
+    private int mana;
+
+    public Golemancer(string nome, int nivel, int vida, int forca, int mana) : base(nome, nivel, vida, forca)
     {
-        private string barreiradegolens;
-        private string Golendepedra;
+        this.mana = mana;
+    }
 
-        public enum ProteçãoDopersonagem
-        {
-            BARREIRADEGOLEN,MONTANHADEGOLEN
-        }
-
-        public enum HabilidadeEspecial
-        {
-            GOLENDEPEDRA
-        }
-
-        [ SerializeField ]
-        private ProteçãoDopersonagem armadura;
-        [ SerializeField ]
-        private HabilidadeEspecial arma;
-
-        public void AtribuirArmadura(string armadura)
-        public void AtribuirArmadura(ProteçãoDopersonagem armadura)
-        {
-            this.armadura = armadura;
-        }
-
-        public string AtribuirArmadura()
-        public ProteçãoDopersonagem Armadura()
-        {
-            return this.armadura;
-        }
-
-        public void AtribuirArma(string arma)
-        public void AtribuirArma( HabilidadeEspecial arma)
-        {
-            this.HabilidadeEspecial = arma;
-        }
-
-        public string AtriburArma()
-        public HabilidadeEspecial arma()
-        {
-            return this.arma;
-        }
-
-      
+    public int GetMana() { return mana; }
+    public void SetMana(int mana) { this.mana = mana; }
 }

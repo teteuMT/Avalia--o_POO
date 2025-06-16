@@ -1,32 +1,21 @@
 using UnityEngine;
 
-public class TesteCodigo : MonoBehaviour
+public class TestePersonagem : MonoBehaviour
 {
-    public void Mensagem(string mensagem)
-    {
-        Debug.Log(mensagem);
-        return;
-    }
-
-    public void IdadeDaPessoa(string nome, int idade)
-    {
-        //Debug.Log("A pessoa de nome "+nome+" tem "+idade+" anos.");
-
-        string frase = "A pessoa de nome " + nome + " tem " + idade + " anos.";
-        
-        Mensagem(frase);
-    }
-
     void Start()
     {
-        IdadeDaPessoa("João", 15);
-        IdadeDaPessoa("Maria",43);
-        IdadeDaPessoa("Jose",43);
-        IdadeDaPessoa("Marcia",48);
-    }
-    
-    void Update()
-    {
-        
+        // Criando personagens
+        Personagem guerreiro = new Personagem("Arthur", 5, 100, 20);
+        Golemancer golemancer = new Golemancer("Matheus", 7, 80, 10, 150);
+
+        // Testando leitura e escrita
+        Debug.Log("Nome do Guerreiro: " + guerreiro.GetNome());
+        Debug.Log("Força do Guerreiro: " + guerreiro.GetForca());
+
+        Debug.Log("Nome do Golemancer: " + golemancer.GetNome());
+        Debug.Log("Mana do Golemancer: " + golemancer.GetMana());
+
+        // Comparação entre os personagens
+        Debug.Log(guerreiro.CompararCom(golemancer));
     }
 }

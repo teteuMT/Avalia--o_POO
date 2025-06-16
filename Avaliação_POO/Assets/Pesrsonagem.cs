@@ -2,81 +2,46 @@ using UnityEngine;
 
 public class Personagem : MonoBehaviour
 {
-    [SerializeField] private string nome;
-    [SerializeField] private int energia;
-    [SerializeField] private int forca_ataque;
-    [SerializeField] private float forca_do_pulo;
-    [SerializeField] private float velocidade;
-    [SerializeField] private int numero_de_pes;
-    [SerializeField] private int numero_de_maos;
+    // Atributos básicos
+    [SerializeField] 
+    private string nome;
+    [SerializeField]
+    private int nivel;
+    [SerializeField]
+    private int vida;
+    [SerializeField]
+    private int forca;
 
-    public void AtribuirNome(string nome)
+    // Construtor
+    public Personagem(string nome, int nivel, int vida, int forca)
     {
         this.nome = nome;
+        this.nivel = nivel;
+        this.vida = vida;
+        this.forca = forca;
     }
 
-    public string Nome()
-    {
-        return this.nome;
-    }
+    // Getters e Setters
+    public string GetNome() { return nome; }
+    public void SetNome(string nome) { this.nome = nome; }
 
-    public void AtribuirEnergia(int energia)
-    {
-        this.energia = energia;
-    }
+    public int GetNivel() { return nivel; }
+    public void SetNivel(int nivel) { this.nivel = nivel; }
 
-    public int Energia()
-    {
-        return this.energia;
-    }
+    public int GetVida() { return vida; }
+    public void SetVida(int vida) { this.vida = vida; }
 
-    public void AtribuirForca_Ataque(int forca_ataque)
-    {
-        this.forca_ataque = forca_ataque;
-    }
+    public int GetForca() { return forca; }
+    public void SetForca(int forca) { this.forca = forca; }
 
-    public int Forca_Ataque()
+    // Função de comparação
+    public string CompararCom(Personagem outro)
     {
-        return this.forca_ataque;
+        if (this.nivel > outro.nivel)
+            return $"{this.nome} é mais forte que {outro.nome}.";
+        else if (this.nivel < outro.nivel)
+            return $"{outro.nome} é mais forte que {this.nome}.";
+        else
+            return $"{this.nome} e {outro.nome} estão no mesmo nível.";
     }
-
-    public void AtribuirForca_do_pulo(float forca_do_pulo)
-    {
-        this.forca_do_pulo = forca_do_pulo;
-    }
-
-    public float Forca_Do_Pulo()
-    {
-        return this.forca_do_pulo;
-    }
-
-    public void Velocidade(float velocidade)
-    {
-        this.velocidade = velocidade;
-    }
-
-    public float Velocidade()
-    {
-        return this.velocidade;
-    }
-
-    public void NumeroDePes(int numero_de_pes)
-    {
-        this.numero_de_pes = numero_de_pes;
-    }
-    
-    public int NumeroDePes()
-    { 
-        return this.numero_de_pes;
-    }
-
-    public void NumeroDeMaos(int numero_de_maos)
-    {
-        this.numero_de_maos = numero_de_maos;
-    }
-
-    public int NumeroDeMaos()
-    {
-        return this.numero_de_maos;
-    }
-}                                
+}
